@@ -18,7 +18,7 @@ def generate_summary(text, api_key, iterations=3):
     for _ in range(iterations):
         print("Generating/refining summary...")
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="o3-mini",
             messages=[
                 {"role": "system", "content": "You are an AI assistant who autonomously summarizes and refines research papers."},
                 {"role": "user", "content": f"Summarize the following research paper content:{text}\nCurrent summary: {summary}\nImprove this summary, ensuring clarity and conciseness."}
@@ -33,7 +33,7 @@ def validate_summary(summary, api_key):
     """Check if the summary is clear, concise, and accurate."""
     client = openai.Client(api_key=api_key)
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="o3-mini",
         messages=[
             {"role": "system", "content": "You are a critical AI reviewer who checks research paper summaries."},
             {"role": "user", "content": f"Review the following summary for clarity, conciseness, and accuracy:\n{summary}\nProvide a brief pass/fail assessment and suggestions for improvement."}

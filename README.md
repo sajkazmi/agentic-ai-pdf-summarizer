@@ -1,4 +1,4 @@
-Agentic AI PDF Summarizer
+# Agentic AI PDF Summarizer
 
 🚀 Overview
 
